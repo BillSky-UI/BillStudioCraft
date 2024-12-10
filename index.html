@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BillStore Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset default margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0A3981, #D4EBF8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+            padding: 10px; /* Added some space around the body */
+        }
+
+        .container {
+            background: rgba(10, 57, 129, 0.9); /* Slightly transparent background for depth */
+            padding: 30px 50px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+        }
+
+        .container h1 {
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px; /* Adds a slight letter spacing for better readability */
+            text-transform: uppercase; /* Adds emphasis to the title */
+        }
+
+        .links {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .links li {
+            margin: 18px 0;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            padding: 12px 25px;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            transition: all 0.3s ease, transform 0.2s ease; /* Smooth transition for both hover and scale effect */
+            display: inline-block;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .links a:hover {
+            background: #E5E1DA;
+            color: black;
+            transform: translateY(-3px); /* Floating effect */
+        }
+
+        /* QR Code Section */
+        .qris {
+            margin: 25px 0;
+        }
+
+        .qris h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #E5E1DA;
+        }
+
+        .qris img {
+            width: 180px;
+            height: auto;
+            border: 3px solid #fff;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .qris img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+        }
+
+        /* Logo Section */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1); /* Slight scaling effect */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add shadow for emphasis */
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                width: 90%;
+            }
+
+            .container h1 {
+                font-size: 24px;
+            }
+
+            .links a {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+
+            .qris img {
+                width: 150px;
+            }
+
+            .logo {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="img/Logo BillStore.jpeg" alt="Logo" class="logo">
+    <div class="container">
+        <h1>BillStore OTW Femessss</h1>
+        <ul class="links">
+            <li><a href="https://wa.me/6283878851008" target="_blank">Kontak JB Saya</a></li>
+            <li><a href="https://chat.whatsapp.com/JkJAeB5fQnO4HkZQnrTYOt" target="_blank">Join Grup JB</a></li>
+            <li><a href="https://www.instagram.com/nbil.ct/profilecard/?igsh=ZmJuZDZuaHlyem5j" target="_blank">Instagram JB</a></li>
+            <li><a href="https://whatsapp.com/channel/0029VaywYHW5Ui2d8kNkmT3f" target="_blank">Testi+Stok BillStore</a></li>
+        </ul>
+        <div class="qris">
+            <h2>QRIS ALLPAYMENT</h2>
+            <a href="img/Qris AllPayment.jpeg" target="_blank">
+                <img src="img/Qris AllPayment.jpeg" alt="QRIS">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.links a');
+            const qrisImage = document.querySelector('.qris img');
+
+            // Click event handler for all links
+            links.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // Smooth transition effect on click before navigating
+                    link.style.transition = 'all 0.3s ease';
+                    link.style.transform = 'scale(1.1)';
+
+                    // Allow the link to open after the transition
+                    setTimeout(() => {
+                        window.open(link.href, '_blank'); // Open the link in a new tab
+                    }, 300); // Delay to allow smooth transition to finish
+                });
+            });
+
+            // Hover effect for the QR code image
+            if (qrisImage) {
+                qrisImage.addEventListener('mouseenter', () => {
+                    qrisImage.style.transform = 'scale(1.05)';
+                    qrisImage.style.transition = 'transform 0.3s ease';
+                });
+
+                qrisImage.addEventListener('mouseleave', () => {
+                    qrisImage.style.transform = 'scale(1)';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
